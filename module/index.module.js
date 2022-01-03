@@ -13,5 +13,5 @@ const sequelize = new Sequelize('studentdb', 'root', '', {
 const db={};
 db.sequelize=sequelize;
 db.Sequelize=Sequelize;
-db.usertbl=require('./users.model')(sequelize,Sequelize);
+db.usertbl=require('./users.module')(sequelize,Sequelize);
 module.exports=db;

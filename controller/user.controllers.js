@@ -1,4 +1,4 @@
-const db=require('../model/index.model');
+const db=require('../module/index.module');
 const usertbl=db.usertbl;
 const sequelize=db.sequelize;
 const Sequelize=db.Sequelize;
