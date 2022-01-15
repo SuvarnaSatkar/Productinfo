@@ -1,19 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
-    const model = sequelize.define("usertbl", {
-      id:{
-        type: Sequelize.INTEGER,
-        primaryKey:true,
-        autoIncrement:true,
-        allowNull:false
-      },
-      name: {
-        type: Sequelize.STRING(100),
-        allowNull: false,
-      },
-      mobile: {
-        type: Sequelize.STRING(12),
-        allowNull: false,
-      },
+    const signtbl = sequelize.define("signtbl", {
+ 
       email: {
         type: Sequelize.STRING(150),
         allowNull: false,
@@ -26,12 +13,12 @@ module.exports = (sequelize, Sequelize) => {
       isActive: {
         type: Sequelize.BOOLEAN,
         defaultValue: true
-      },
+      }
     },
     {
       freezeTableName: true
     });
   
-    return model;
+    return signtbl;
   };
   

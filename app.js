@@ -1,21 +1,25 @@
-var express = require('express');
+const express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const db=require('./module/index.module');
-var indexRouter = require('./routes');
-var usersRouter = require('./routes/users');
+//var indexRouter = require('./routes');
+const usersRouter = require('./routes/users.js');
 
-var app = express();
-
-app.use(logger('dev'));
+const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev'));
+
+//app.use(express.urlencoded({ extended: false }));
+//app.use(cookieParser());
+//app.use(express.static(path.join(__dirname, 'public')));
 db.sequelize.sync();
 // db.sequelize.sync({force: true});
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.listen(5000, (req,res)=>{
+    console.log('Server is listening at port 5000')
 
-module.exports = app;
+ })
+
+//module.exports = app;

@@ -1,10 +1,19 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const userContoller = require('../controller/user.controllers');
-/* GET users listing. */
-router.get('/allusers',userContoller.getallUsers);
+//router.use(express.json())
+router.get('/first',(req,res)=>{
+console.log(req.params.id)
+   res.send({sucess:true,msg:'sucess'}) 
+})
 
-router.post('/create',userContoller.createUser);
-router.post('/update', userContoller.updateUser);
-router.post('/delete', userContoller.deleteUser);
+/* GET users listing. */
+router.post('/createUser',(req,res)=>{
+   let password=req.body.name
+console.log(password)
+   res.send('hello' + password)
+});
+
+router.post('/signin',userContoller.signin);
+
 module.exports = router;

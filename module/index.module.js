@@ -1,5 +1,5 @@
 const Sequelize=require('sequelize');
-const sequelize = new Sequelize('studentdb', 'root', '', {
+const sequelize = new Sequelize('productdb', 'root', '', {
     host: 'localhost',
     dialect: 'mysql'
   });
@@ -13,5 +13,6 @@ const sequelize = new Sequelize('studentdb', 'root', '', {
 const db={};
 db.sequelize=sequelize;
 db.Sequelize=Sequelize;
-db.usertbl=require('./users.module')(sequelize,Sequelize);
+db.signtbl= require('./users.module')(sequelize,Sequelize);
+
 module.exports=db;
